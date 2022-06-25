@@ -1,50 +1,55 @@
 import "cypress-real-events/support";
+import HomePage from "../support/pageObjects/HomePage"
 describe('Login Suite', () => {
   beforeEach(function () {
     cy.fixture('example').then(function (data) {
       this.data = data[0]
       this.data2 = data[1]
     })
+    const homePage = new HomePage()
     // cy.visit('https://www.mytheresa.com/en-de/men.html')
     cy.visit('https://www.konga.com')
 
     // cy.get('#myaccount').should('be.visible')
-    cy.get('[href="/account/login?return_url=/"]').should('be.visible')
+    homePage.getLoginBtn().should('be.visible')
     // cy.get("[id='myaccount']").click()
-    cy.get('[href="/account/login?return_url=/"]').click()
-    cy.get('[for="username"]').should('be.visible')
+    homePage.getLoginBtn().click()
+    homePage.getUsernameText().should('be.visible')
   })
 
   it('Valid Login Test 1', function () {
-    
+    const homePage = new HomePage()
+
     // cy.get('#email').type(this.data.email)
-    cy.get('#username').type(this.data.email)
+    homePage.getUsernameField().type(this.data.email)
     // cy.get('#pass').type(this.data.password)
-    cy.get('#password').type(this.data.password)
+    homePage.getPasswordField().type(this.data.password)
     // cy.get('#send2').click()
-    cy.get('[action="/account/login"] [type="submit"]').click()
-    cy.get('[href="/account/profile"]:nth-child(1) > span').should('be.visible').should('contain', 'My Account')
+    homePage.getLoginSubmitBtn().click()
+    homePage.getAccount().should('be.visible').should('contain', 'My Account')
     // cy.get('[href="/account/profile"] > span').trigger('mouseover')
-    cy.get('[href="/account/profile"] > span').realHover('mouse')
+    homePage.getAccount().realHover('mouse')
     cy.contains(`Hi ${this.data.name}`).should('be.visible')
-    cy.get('[class="de870_2eIHs a2562_2y9Sv"]').click()
-    cy.get('[href="/account/login?return_url=/"]').should('be.visible')
+    homePage.getLogoutBtn().click()
+    homePage.getLoginBtn().should('be.visible')
     cy.wait(2000);
 
   })
   it('Valid Login Test 2', function () {
-    
-    cy.get('#username').type(this.data2.email)
+    const homePage = new HomePage()
+
+    // cy.get('#email').type(this.data.email)
+    homePage.getUsernameField().type(this.data2.email)
     // cy.get('#pass').type(this.data.password)
-    cy.get('#password').type(this.data2.password)
+    homePage.getPasswordField().type(this.data2.password)
     // cy.get('#send2').click()
-    cy.get('[action="/account/login"] [type="submit"]').click()
-    cy.get('[href="/account/profile"]:nth-child(1) > span').should('be.visible').should('contain', 'My Account')
+    homePage.getLoginSubmitBtn().click()
+    homePage.getAccount().should('be.visible').should('contain', 'My Account')
     // cy.get('[href="/account/profile"] > span').trigger('mouseover')
-    cy.get('[href="/account/profile"] > span').realHover('mouse')
+    homePage.getAccount().realHover('mouse')
     cy.contains(`Hi ${this.data2.name}`).should('be.visible')
-    cy.get('[class="de870_2eIHs a2562_2y9Sv"]').click()
-    cy.get('[href="/account/login?return_url=/"]').should('be.visible')
+    homePage.getLogoutBtn().click()
+    homePage.getLoginBtn().should('be.visible')
     cy.wait(2000);
 
   })
