@@ -7,8 +7,8 @@ describe('Login Suite', () => {
       this.data2 = data[1]
     })
     const homePage = new HomePage()
-    cy.visit('/')
-    // cy.visit(Cypress.env('url'))
+    // cy.visit('/')
+    cy.visit(Cypress.env('url'))
 
     // cy.get('#myaccount').should('be.visible')
     homePage.getLoginBtn().should('be.visible')

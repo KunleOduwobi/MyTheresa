@@ -1,7 +1,7 @@
 class HomePage{
 
     getMyAccount(){
-        return cy.get('[href="/account/login?return_url=/"]')
+        return cy.get('[href="/account/login?return_url=/category/accessories-computing-5227"]')
     }
     getLoginBtn(){
         return cy.get('[href="/account/login?return_url=/"]')
