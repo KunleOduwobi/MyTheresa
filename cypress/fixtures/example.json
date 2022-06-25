@@ -1,6 +1,12 @@
+[
 {
-  "name": "Kunle Oduwobi",
+  "name": "Kunle",
   "email": "kunleodu@gmail.com",
   "password": "notcorrect"
+},
+{
+  "name": "Konga",
+  "email": "qaTest2@konga.com",
+  "password": "PASS123"
 }
-
+]

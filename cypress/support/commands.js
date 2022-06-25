@@ -13,6 +13,10 @@
 // Cypress.Commands.add('login', (email, password) => { ... })
 //
 //
+
+Cypress.Commands.add('hover', selector => {
+    cy.get(selector).rightclick();
+});
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
 //
