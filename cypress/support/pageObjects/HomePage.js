@@ -1,28 +1,31 @@
 class HomePage{
 
     getMyAccount(){
-        return cy.get('[href="/account/login?return_url=/category/accessories-computing-5227"]')
+        return cy.get('#myaccount')
     }
     getLoginBtn(){
         return cy.get('[href="/account/login?return_url=/"]')
     }
-    getUsernameText(){
-        return cy.get('[for="username"]')
+    getLoginForm(){
+        return cy.get('#customer-flyout-login')
     }
     getUsernameField(){
-        return cy.get('#username')
+        return cy.get('#email')
     }
     getPasswordField(){
-        return cy.get('#password')
+        return cy.get('#pass')
     }
     getLoginSubmitBtn(){
-        return cy.get('[action="/account/login"] [type="submit"]')
+        return cy.get('#send2')
     }
-    getAccount(){
-        return cy.get('[href="/account/profile"]:nth-child(1) > span')
+    getWelcomeMsg(){
+        return cy.get('[class="hello hs1"]')
+    }
+    getAccountNav(){
+        return cy.get('.customer-name')
     }
     getLogoutBtn(){
-        return cy.get('[class="de870_2eIHs a2562_2y9Sv"]')
+        return cy.get('.logout')
     }
 
 }
