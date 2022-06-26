@@ -1,3 +1,4 @@
+import HomePage from "../support/pageObjects/HomePage"
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -16,6 +17,17 @@
 
 Cypress.Commands.add('hover', selector => {
     cy.get(selector).rightclick();
+});
+
+Cypress.Commands.add('login', (email, password) => {
+    const homePage = new HomePage()
+
+    homePage.getLoginBtn().should('be.visible')
+    homePage.getLoginBtn().click()
+    homePage.getUsernameText().should('be.visible')
+    homePage.getUsernameField().type(email)
+    homePage.getPasswordField().type(password)
+    homePage.getLoginSubmitBtn().click()
 });
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })

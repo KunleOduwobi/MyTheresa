@@ -12,7 +12,7 @@ module.exports = defineConfig({
     // "baseUrl": "https://www.mytheresa.com/int_en/men.html",
     "env":
     {
-      "url": "https://www.mytheresa.com",
+      "url": "https://www.konga.com",
       "local": "https://local.mytheresa.com",
       "staging": "https://staging.mytheresa.com",
       "test": "https://test.mytheresa.com"
