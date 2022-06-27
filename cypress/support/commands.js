@@ -1,4 +1,6 @@
 import HomePage from "../support/pageObjects/HomePage"
+import "cypress-real-events/support";
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -21,13 +23,13 @@ Cypress.Commands.add('hover', selector => {
 
 Cypress.Commands.add('login', (email, password) => {
     const homePage = new HomePage()
-
     homePage.getMyAccount().should('be.visible')
     homePage.getMyAccount().trigger('mouseover')
     homePage.getLoginForm().should('be.visible')
     homePage.getUsernameField().type(email)
     homePage.getPasswordField().type(password)
     homePage.getLoginSubmitBtn().click()
+    cy.wait(20000)
 });
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })

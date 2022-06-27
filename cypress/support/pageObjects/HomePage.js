@@ -30,6 +30,9 @@ class HomePage{
     getLoginError() {
         return cy.get('[class="error-msg"] > ul > li > span')
     }
+    getRequiredError() {
+        return cy.get('#advice-validate-password-pass')
+    }
 
 }
 export default HomePage;
