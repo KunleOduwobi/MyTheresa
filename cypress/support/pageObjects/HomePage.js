@@ -27,6 +27,9 @@ class HomePage{
     getLogoutBtn(){
         return cy.get('.logout')
     }
+    getLoginError() {
+        return cy.get('[class="error-msg"] > ul > li > span')
+    }
 
 }
 export default HomePage;

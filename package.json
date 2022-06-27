@@ -4,8 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "cypress:open": "cypress open"
+    "test": "npx cypress run",
+    "cypress:open": "cypress open",
+    "chromeHeaded": "npx cypress run --browser chrome --headed ",
+    "testEnv": "npx cypress run --browser chrome --env url=https://test.mytheresa.com",
+    "localEnv": "npx cypress run --browser chrome --env url=https://local.mytheresa.com",
+    "stagingEnv": "npx cypress run --browser chrome --env url=https://staging.mytheresa.com"
+
+
   },
   "author": "",
   "license": "ISC",
