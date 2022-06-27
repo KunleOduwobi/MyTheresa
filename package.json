@@ -1,0 +1,24 @@
+{
+  "name": "mytheresa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress run",
+    "cypress:open": "cypress open",
+    "chromeHeaded": "npx cypress run --browser chrome --headed ",
+    "testEnv": "npx cypress run --browser chrome --env url=https://test.mytheresa.com",
+    "localEnv": "npx cypress run --browser chrome --env url=https://local.mytheresa.com",
+    "stagingEnv": "npx cypress run --browser chrome --env url=https://staging.mytheresa.com"
+
+
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^10.2.0"
+  },
+  "dependencies": {
+    "cypress-real-events": "^1.7.0"
+  }
+}

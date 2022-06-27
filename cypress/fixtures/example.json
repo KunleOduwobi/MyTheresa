@@ -1,6 +1,12 @@
+[
 {
-  "name": "Kunle Oduwobi",
-  "email": "kunleodu@gmail.com",
-  "password": "notcorrect"
+  "name": "Kunle",
+  "email": "kunleo@maildrop.cc",
+  "password": "123456abcdef"
+},
+{
+  "name": "Mary",
+  "email": "maryo@maildrop.cc",
+  "password": "abcdef123456"
 }
-
+]
