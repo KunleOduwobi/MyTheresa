@@ -4,7 +4,7 @@
 The end-to-end tests that ensure that functionalities performed by users work as expected
 
 ## Setup
-Simply have node installed on your machine and clone the repository
+Simply have node.js installed on your machine and clone the repository
 
 ## Cypress
 From your Terminal, navigate the project root directoy and run the following command to launch the Cypress Component:
@@ -14,7 +14,7 @@ npx cypress open --component
 If you wish to run all the tests on an headless browser, run the following command, which executes the test on the production environment:
 npx cypress run
 
-## Brower
+## Browser
 You may specify what browser to run with the --browser argument. e.g.
 npx cypress run --browser chrome
 
@@ -23,7 +23,7 @@ If you want to run only a single test file, use the --spec argument. e.g.
 npx cypress run --spec cypress/e2e/loginTest.cy.js
 
 ## Headed
-If you wish to run the tests on a visual broswer, use the --headed and --browser arguments. e.g.
+If you wish to run the tests on a visual browser, use the --headed and --browser arguments. e.g.
 npx cypress run --browser chrome
 
 ## Environment
