@@ -1,4 +1,5 @@
 import HomePage from "../support/pageObjects/HomePage"
+import Appwrite from "../support/pageObjects/Appwrite"
 import "cypress-real-events/support";
 
 // ***********************************************
@@ -30,6 +31,20 @@ Cypress.Commands.add('login', (email, password) => {
     homePage.getPasswordField().type(password)
     homePage.getLoginSubmitBtn().click()
     cy.wait(20000)
+});
+
+Cypress.Commands.add('savePR', () => {
+    const appwrite = new Appwrite()
+    appwrite.getPrNames().each(($pulls, index, $list) => {
+        appwrite.getPrDates().eq(index).then(function (createdDate) {
+            // cy.log(createdDate.text())
+            appwrite.getPrAuthors().eq(index).then(function (author) {
+
+                cy.writeFile('cypress/fixtures/test3.csv', `\n${$pulls.text()}\t${createdDate.text()}\t${author.text()}`, { flag: 'a+' })
+            })
+        })
+
+    })
 });
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
