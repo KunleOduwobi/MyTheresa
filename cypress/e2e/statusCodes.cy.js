@@ -24,8 +24,6 @@ describe('API Suite', () => {
     it('Verify all pages on MyTheresa - Men return 200 or 30x status code', () => {
         cy.once('uncaught:exception', () => false);
 
-
-
         cy.visit(Cypress.env('url') + '/en-de/men.html', {
             headers: {
                 "User-Agent": "axios/0.18.0"
