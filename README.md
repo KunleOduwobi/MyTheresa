@@ -9,7 +9,6 @@ Simply have node.js installed on your machine and clone the repository
 ## Cypress Component
 From your Terminal, navigate to the project root directoy and run the following command to launch the Cypress Component:
 npx cypress open --component
-This is useful in running testCase3
 
 ## Headless
 If you wish to run all the tests on an headless browser, run the following command, which executes the test on the production environment:
