@@ -1,8 +1,8 @@
 import Appwrite from "../support/pageObjects/Appwrite"
 
-describe('Pull Requests', () => {
+describe('Pull Requests Test Suite', () => {
 
-    it('list of PR in CSV format', async () => {
+    it('Write a list of all open PRs into CSV file', async () => {
         const appwrite = new Appwrite()
 
         cy.once('uncaught:exception', () => false);
@@ -14,7 +14,7 @@ describe('Pull Requests', () => {
         })
 
         appwrite.getPrFilter().should('have.value', 'is:pr is:open ')
-        cy.writeFile('cypress/fixtures/test3.csv', 'PR name\tCreated Date\tAuthor')
+        cy.writeFile('cypress/fixtures/open_prs.csv', 'PR name\tCreated Date\tAuthor')
 
         cy.savePR()
 

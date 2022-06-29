@@ -40,7 +40,7 @@ Cypress.Commands.add('savePR', () => {
             // cy.log(createdDate.text())
             appwrite.getPrAuthors().eq(index).then(function (author) {
 
-                cy.writeFile('cypress/fixtures/test3.csv', `\n${$pulls.text()}\t${createdDate.text()}\t${author.text()}`, { flag: 'a+' })
+                cy.writeFile('cypress/fixtures/open_prs.csv', `\n${$pulls.text()}\t${createdDate.text()}\t${author.text()}`, { flag: 'a+' })
             })
         })
 

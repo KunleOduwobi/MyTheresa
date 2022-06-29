@@ -1,7 +1,9 @@
 import "cypress-real-events/support";
 import HomePage from "../support/pageObjects/HomePage"
-describe('Login Suite', () => {
+
+describe('Login Test Suite', () => {
   beforeEach(function () {
+
     cy.fixture('example').then(function (data) {
       this.data = data[0]
       this.data2 = data[1]
@@ -9,7 +11,6 @@ describe('Login Suite', () => {
     const homePage = new HomePage()
     cy.once('uncaught:exception', () => false);
 
-    // cy.visit('/')
     cy.visit(Cypress.env('url') + '/en-de/men.html', {
       headers: {
         "User-Agent": "axios/0.18.0"
@@ -27,8 +28,6 @@ describe('Login Suite', () => {
     cy.url().should('include', '/customer/account')
     homePage.getWelcomeMsg().should('be.visible').should('contain', `Hello,  ${this.data.name}!`)
     homePage.getMyAccount().trigger('mouseover')
-    // cy.get('[href="/account/profile"] > span').trigger('mouseover')
-    // homePage.getAccount().realHover('mouse')
     homePage.getAccountNav().should('be.visible').should('contain', `${this.data.name}`)
 
     // Logout
