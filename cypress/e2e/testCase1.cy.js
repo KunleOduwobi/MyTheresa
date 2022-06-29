@@ -1,6 +1,6 @@
-describe('API Suite', () => {
+describe('API Test Suite', () => {
 
-    it('Verify there are no JavaScript errors on MyTheresa', () => {
+    it('Verify there are no JavaScript errors on MyTheresa - Men page', () => {
         cy.once('uncaught:exception', () => false);
 
         let windowError;
@@ -59,27 +59,27 @@ describe('API Suite', () => {
         })
     })
 
-    // it('Returns status code of all links on MyTheresa - Men', () => {
-    //     cy.once('uncaught:exception', () => false);
+    it('Returns status code of all links on MyTheresa - Men', () => {
+        cy.once('uncaught:exception', () => false);
 
-    //     cy.visit(Cypress.env('url') + '/en-de/men.html', {
-    //         headers: {
-    //             "User-Agent": "axios/0.18.0"
-    //         }
-    //     })
-    //     // Get all links on the page
-    //     cy.get("a").each(page => {
-    //         const link = page.prop('href')
-    //         cy.request({
-    //             url: link,
-    //             failOnStatusCode: false
-    //         }).then(response => {
-    //             Cypress.log({
-    //                 name: link,
-    //                 message: response.status
-    //             })
-    //         })
-    //     })
-    // })
+        cy.visit(Cypress.env('url') + '/en-de/men.html', {
+            headers: {
+                "User-Agent": "axios/0.18.0"
+            }
+        })
+        // Get all links on the page
+        cy.get("a").each(page => {
+            const link = page.prop('href')
+            cy.request({
+                url: link,
+                failOnStatusCode: false
+            }).then(response => {
+                Cypress.log({
+                    name: link,
+                    message: response.status
+                })
+            })
+        })
+    })
 
 })
